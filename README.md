@@ -57,7 +57,7 @@ High-level behavioral models, including:
 - Event and callback flow
 
 analysis/protocol  
-Observed protocol-level behavior and sequencing
+Observed protocol-level behavior and sequencing  
 (No raw packet dumps)
 
 analysis/ghidra  
@@ -97,7 +97,7 @@ Notes related to reverse engineering methodology and tooling
 4. aw_enter or aw_join  
 5. Main loop:
    - aw_wait
-   - process callbacks
+   - process callbacks  
 6. aw_exit  
 7. aw_term  
 
@@ -105,12 +105,19 @@ Skipping or reordering steps results in undefined behavior.
 
 ---
 
-## Who This Is For
+## Getting the Official SDK
 
-- Engine developers (Unity, Unreal, custom engines)
-- Tool and automation authors
-- SDK reimplementation efforts
-- Researchers documenting legacy virtual world systems
+The official DeltaWorlds SDK is publicly available from the vendor.
+
+You can obtain the SDK, headers, and documentation directly from:
+
+https://www.deltaworlds.com/
+
+This repository does not redistribute the SDK or any of its components.
+
+All behavioral documentation here is intended to be used alongside the official SDK, or as a reference for building compatible tooling, viewers, or alternative clients that interoperate correctly.
+
+Always ensure you are using the SDK in accordance with the applicable license terms provided by DeltaWorlds.
 
 ---
 
@@ -151,4 +158,3 @@ This is sufficient to build a **fully compatible client or viewer**.
 - Unity reference implementation notes
 - ABI compatibility headers
 - Automated conformance test cases
-
