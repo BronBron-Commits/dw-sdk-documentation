@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DeltaWorlds SDK – Behavioral Documentation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>DeltaWorlds SDK</h1>
+  <p class="subtitle">Behavioral Documentation</p>
+</header>
+
+<nav>
+  <a href="#purpose">Purpose</a>
+  <a href="#concepts">Core Concepts</a>
+  <a href="#lifecycle">Client Lifecycle</a>
+  <a href="#sdk">Official SDK</a>
+</nav>
+
+<main>
+
+<section id="purpose">
+  <h2>Purpose</h2>
+  <p>
+    This site documents the observable behavior of the DeltaWorlds /
+    ActiveWorlds-style SDK as derived from static analysis, decompilation,
+    and runtime reasoning.
+  </p>
+  <p>
+    This is a behavioral specification — not an SDK implementation and not
+    redistributed source code.
+  </p>
+</section>
+
+<section id="concepts">
+  <h2>Core Concepts</h2>
+
+  <h3>Thread-Local Runtime</h3>
+  <p>
+    Each thread owns its own SDK context. The SDK is not reentrant.
+    Only one active connection or instance is valid per thread.
+  </p>
+
+  <h3>Explicit Event Pump</h3>
+  <p>
+    The SDK does not use background threads. Progress only occurs when
+    <strong>aw_wait</strong> is called.
+  </p>
+
+  <h3>Server Authority</h3>
+  <p>
+    The server is the single source of truth. Client calls stage intent,
+    not state. Permissions gate all mutations.
+  </p>
+</section>
+
+<section id="lifecycle">
+  <h2>Minimal Correct Client Lifecycle</h2>
+  <ol>
+    <li>aw_init</li>
+    <li>Configure callbacks and events</li>
+    <li>aw_login</li>
+    <li>aw_enter or aw_join</li>
+    <li>Main loop:
+      <ul>
+        <li>aw_wait</li>
+        <li>process callbacks and events</li>
+      </ul>
+    </li>
+    <li>aw_exit</li>
+    <li>aw_term</li>
+  </ol>
+</section>
+
+<section id="sdk">
+  <h2>Getting the Official SDK</h2>
+  <p>
+    The official DeltaWorlds SDK is available from:
+  </p>
+  <p>
+    <a href="https://www.deltaworlds.com/" target="_blank">
+      https://www.deltaworlds.com/
+    </a>
+  </p>
+  <p>
+    This site does not redistribute SDK binaries or headers.
+  </p>
+</section>
+
+</main>
+
+<footer>
+  <p>
+    Behavioral documentation based on independent analysis.
+  </p>
+</footer>
+
+</body>
+</html>
