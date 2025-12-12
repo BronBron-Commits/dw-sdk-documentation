@@ -1,0 +1,44 @@
+site_name: DeltaWorlds SDK – Behavioral Documentation
+site_description: Behavioral specification and analysis of the DeltaWorlds SDK
+site_author: BronBron
+
+repo_name: dw-sdk-documentation
+repo_url: https://github.com/BronBron-Commits/dw-sdk-documentation
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.highlight
+    - search.share
+  palette:
+    - scheme: default
+      primary: blue
+      accent: cyan
+    - scheme: slate
+      primary: blue
+      accent: cyan
+
+nav:
+  - Home: index.md
+  - SDK Lifecycle:
+      - State Machine: state/sdk_state_machine.md
+  - API Reference:
+      - Initialization: exports/aw_init.md
+      - Login & Session: exports/aw_login.md
+  - Protocol:
+      - Overview: protocol/overview.md
+  - Reverse Engineering:
+      - Ghidra Notes: ghidra/notes.md
+
+markdown_extensions:
+  - admonition
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.superfences
+
+plugins:
+  - search
